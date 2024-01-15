@@ -113,7 +113,7 @@ public class GameOfLife {
 	}
 
 	
-	private static int cellValue(int[][] board, int i, int j) {
+	public static int cellValue(int[][] board, int i, int j) {
 // Returns the value that cell (i,j) should have in the next generation.
 	// If the cell is alive (equals 1) and has fewer than two live neighbors, it dies (becomes 0).
 	// If the cell is alive and has two or three live neighbors, it remains alive.
@@ -141,7 +141,7 @@ public class GameOfLife {
 	}
 	
 	 
-	private static int count(int[][] board, int i, int j) {
+	public static int count(int[][] board, int i, int j) {
 		// Counts and returns the number of living neighbors of the given cell
 	// (The cell itself is not counted).
 	// Assumes that i is at least 1 and at most the number of rows in the board - 1. 
