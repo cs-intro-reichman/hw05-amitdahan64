@@ -8,7 +8,7 @@
 public class GameOfLife {
 
 	public static void main(String[] args) {
-		String fileName = "hypnotic.dat";
+		String fileName = args[0];
 		//// Uncomment the test that you want to execute, and re-compile.
 		//// (Run one test at a time).
 		////test1(fileName);
@@ -18,13 +18,13 @@ public class GameOfLife {
 	}
 	
 	// Reads the data file and prints the initial board.
-	private static void test1(String fileName) {
+	public static void test1(String fileName) {
 		int[][] board = read(fileName);
 		print(board);
 	}
 		
 	
-	private static void test2(String fileName) {
+	public static void test2(String fileName) {
 		// Reads the data file, and runs a test that checks 
 		// the count and cellValue functions.
 		int[][] board = read(fileName);
@@ -47,7 +47,7 @@ public class GameOfLife {
 	}
 		
 	
-	private static void test3(String fileName, int Ngen) {
+	public static void test3(String fileName, int Ngen) {
 		// Reads the data file, plays the game for Ngen generations, 
 		// and prints the board at the beginning of each generation.
 		int[][] board = read(fileName);
@@ -60,7 +60,7 @@ public class GameOfLife {
 	}
 		
 	// Reads the data file and plays the game, for ever.
-	private static void play(String fileName) {
+	public static void play(String fileName) {
 		int[][] board = read(fileName);
 		while (true) {
 			show(board);
@@ -69,7 +69,7 @@ public class GameOfLife {
 	}
 	
 	
-	private static int[][] read(String fileName) {
+	public static int[][] read(String fileName) {
 		// Reads the initial board configuration from the file whose name is fileName, uses the data
 	// to construct and populate a 2D array that represents the game board, and returns this array.
 	// Live and dead cells are represented by 1 and 0, respectively. The constructed board has 2 extra
@@ -97,7 +97,7 @@ public class GameOfLife {
 	}
 	
 	
-	private static int[][] evolve(int[][] board) {
+	public static int[][] evolve(int[][] board) {
 		// Creates a new board from the given board, using the rules of the game.
 	// Uses the cellValue(board,i,j) function to compute the value of each 
 	// cell in the new board. Returns the new board.
@@ -159,7 +159,7 @@ public class GameOfLife {
 	}
 	
 	// Prints the board. Alive and dead cells are printed as 1 and 0, respectively.
-    private static void print(int[][] arr) {
+    public static void print(int[][] arr) {
 		for(int i =0; i < arr.length; i++){
 			System.out.println();
 			System.out.println();
@@ -181,7 +181,7 @@ public class GameOfLife {
     // In order to handle any given board size, we scale the X and Y dimensions according to the board size.
     // This results in the following visual effect: The smaller the board, the larger the squares
 	// representing cells.
-	private static void show(int[][] board) {
+	public static void show(int[][] board) {
 		StdDraw.setCanvasSize(900, 900);
 		int rows = board.length;
 		int cols = board[0].length;
