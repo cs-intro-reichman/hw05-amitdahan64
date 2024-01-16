@@ -14,7 +14,7 @@ public class GameOfLife {
 		////test1(fileName);
 		////test2(fileName);
 		///test3(fileName, 3);
-		play(fileName);
+		//play(fileName);
 	}
 	
 	// Reads the data file and prints the initial board.
@@ -80,7 +80,7 @@ public class GameOfLife {
 		In in = new In(fileName); // Constructs an In object for reading the input file
 		int rows = Integer.parseInt(in.readLine());
 		int cols = Integer.parseInt(in.readLine());
-		int[][] board = new int[rows + 2][cols + 2];
+		int[][] board = new int[rows][cols];
 		//// Replace the following statement with your code.
 		int counter = 0;
 		while(in.hasNextLine()){
@@ -88,7 +88,7 @@ public class GameOfLife {
 			String row = in.readLine();
 			for(int i = 0; i < row.length(); i++){
 				if(row.charAt(i) == 'x'){
-					board[counter][i+1] = 1;
+					board[counter][i] = 1;
 				}
 			}
 			counter++;
@@ -162,14 +162,14 @@ public class GameOfLife {
     public static void print(int[][] arr) {
 		for(int i =0; i < arr.length; i++){
 			System.out.println();
-			System.out.println();
+			
 			
 			for(int j =0; j< arr[0].length; j++){
 				if(j == arr[0].length -1){
 					System.out.print(arr[i][j]);
 				}
 				else{
-					System.out.print(arr[i][j] + " ");
+					System.out.print(arr[i][j] + "  ");
 				}
 				
 			}
