@@ -8,7 +8,7 @@
 public class GameOfLife {
 
 	public static void main(String[] args) {
-		String fileName = "line.dat";
+		String fileName = "square.dat";
 		//// Uncomment the test that you want to execute, and re-compile.
 		//// (Run one test at a time).
 		///test1(fileName);
@@ -147,7 +147,7 @@ public class GameOfLife {
 	// Assumes that i is at least 1 and at most the number of rows in the board - 1. 
 	// Assumes that j is at least 1 and at most the number of columns in the board - 1.
 		int liveNeighbors = 0;
-		if(i<1 || j<1){return 0;}
+		if(i == 0|| j == 0 || i == board.length || j == board[0].length){return 0;}
 		for(int n = i -1; n <= i + 1; n++){
 			for(int m = j -1; m <= j + 1; m++){
 				if(board[n][m] == 1){
