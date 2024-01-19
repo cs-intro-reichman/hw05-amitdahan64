@@ -150,10 +150,12 @@ public class GameOfLife {
 		
 		for(int n = i -1; n <= i + 1; n++){
 			for(int m = j -1; m <= j + 1; m++){
-				
-				if(board[n][m] == 1 && n <= board.length && m <= board[0].length){
-					liveNeighbors++;
+				if( n <= board.length && m <= board[0].length){
+					if(board[n][m] == 1 ){
+						liveNeighbors++;
+					}
 				}
+				
 			}
 		}
 		if(board[i][j]==1){liveNeighbors--;}
