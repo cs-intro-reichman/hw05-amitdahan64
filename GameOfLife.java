@@ -150,7 +150,7 @@ public class GameOfLife {
 		
 		for(int n = i -1; n <= i + 1; n++){
 			for(int m = j -1; m <= j + 1; m++){
-				if(i == 0|| j == 0 || i >= board.length-1 || j >= board[0].length-1){return 0;}
+				if(i == 0|| j == 0 || i >= board.length || j >= board[0].length){return 0;}
 				if(board[n][m] == 1){
 					liveNeighbors++;
 				}
