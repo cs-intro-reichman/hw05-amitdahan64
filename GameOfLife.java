@@ -8,12 +8,12 @@
 public class GameOfLife {
 
 	public static void main(String[] args) {
-		String fileName = args[0];
+		String fileName = "line.dat";
 		//// Uncomment the test that you want to execute, and re-compile.
 		//// (Run one test at a time).
 		///test1(fileName);
 		////test2(fileName);
-		//test3(fileName, 3);
+		test3(fileName, 3);
 		//play(fileName);
 	}
 	
@@ -150,8 +150,8 @@ public class GameOfLife {
 		
 		for(int n = i -1; n <= i + 1; n++){
 			for(int m = j -1; m <= j + 1; m++){
-				if(i == 0|| j == 0 || i >= board.length-1 || j >= board[0].length-1){return liveNeighbors;}
-				if(board[n][m] == 1){
+				
+				if(board[n][m] == 1 && n <= board.length && m <= board[0].length){
 					liveNeighbors++;
 				}
 			}
