@@ -12,7 +12,7 @@ public class GameOfLife {
 		//// Uncomment the test that you want to execute, and re-compile.
 		//// (Run one test at a time).
 		///test1(fileName);
-		////test2(fileName);
+		//test2(fileName);
 		//test3(fileName, 3);
 		//play(fileName);
 	}
@@ -29,7 +29,6 @@ public class GameOfLife {
 		// the count and cellValue functions.
 		int[][] board = read(fileName);
 		print(board);
-		System.out.println(" ");
 		for(int i =1; i < board.length-1;i++)
 		{
 			for(int j=1; j < board[0].length-1; j++){
@@ -147,9 +146,18 @@ public class GameOfLife {
 	// Assumes that i is at least 1 and at most the number of rows in the board - 1. 
 	// Assumes that j is at least 1 and at most the number of columns in the board - 1.
 		int liveNeighbors = 0;
-		
-		for(int n = i -1; n <= i + 1; n++){
-			for(int m = j -1; m <= j + 1; m++){
+		int k, r, s, t;
+		if(i == 0){k = i;}
+		else { k = i-1;}
+		if(i == board.length){r = i; }
+		else{r = i+1;}
+		if(j == 0){s = j;}
+		else{s = j-1;}
+		if(j == board[0].length){t = j;}
+		else{t = j+1;}
+
+		for(int n = k; n <= r; n++){
+			for(int m = s; m <= t; m++){
 				if( n <= board.length-1 && m <= board[0].length-1){
 					if(board[n][m] == 1 ){
 						liveNeighbors++;
