@@ -8,12 +8,12 @@
 public class GameOfLife {
 
 	public static void main(String[] args) {
-		String fileName = args[0];
+		String fileName = "line.dat";
 		//// Uncomment the test that you want to execute, and re-compile.
 		//// (Run one test at a time).
 		///test1(fileName);
 		//test2(fileName);
-		//test3(fileName, 3);
+		test3(fileName, 3);
 		//play(fileName);
 	}
 	
@@ -55,6 +55,7 @@ public class GameOfLife {
 			System.out.println("Generation " + gen + ":");
 			print(board);
 			board = evolve(board);
+			
 		}
 	}
 		
@@ -79,18 +80,16 @@ public class GameOfLife {
 		In in = new In(fileName); // Constructs an In object for reading the input file
 		int rows = Integer.parseInt(in.readLine());
 		int cols = Integer.parseInt(in.readLine());
-		int[][] board = new int[rows][cols];
+		int[][] board = new int[rows+2][cols+2];
 		//// Replace the following statement with your code.
-		int counter = 0;
-		while(in.hasNextLine()){
-			
-			String row = in.readLine();
-			for(int i = 0; i < row.length(); i++){
-				if(row.charAt(i) == 'x'){
-					board[counter][i] = 1;
+		for (int i = 1; i<= rows; i++){
+			String line = in.readLine();
+			if (line != null){
+				for ( int k =1; k<= line.length(); k++){
+					board [i][k] = (line.charAt(k-1) =='x') ? 1 : 0;
 				}
 			}
-			counter++;
+		
 		}
 		return board;
 	}
@@ -146,23 +145,13 @@ public class GameOfLife {
 	// Assumes that i is at least 1 and at most the number of rows in the board - 1. 
 	// Assumes that j is at least 1 and at most the number of columns in the board - 1.
 		int liveNeighbors = 0;
-		int k, r, s, t;
-		if(i == 0){k = i;}
-		else { k = i-1;}
-		if(i == board.length-1){r = i; }
-		else{r = i+1;}
-		if(j == 0){s = j;}
-		else{s = j-1;}
-		if(j == board[0].length-1){t = j;}
-		else{t = j+1;}
 
-		for(int n = k; n <= r; n++){
-			for(int m = s; m <= t; m++){
-				if( n <= board.length-1 && m <= board[0].length-1){
+		for(int n = i-1; n <= i+1; n++){
+			for(int m = j-1; m <= j+1; m++){
+				
 					if(board[n][m] == 1 ){
 						liveNeighbors++;
 					}
-				}
 				
 			}
 		}
@@ -172,9 +161,9 @@ public class GameOfLife {
 	
 	// Prints the board. Alive and dead cells are printed as 1 and 0, respectively.
     public static void print(int[][] arr) {
-		for(int i =0; i < arr.length; i++){
+		for(int i =1; i < arr.length-1; i++){
 			
-			for(int j =0; j< arr[0].length; j++){
+			for(int j =1; j< arr[0].length-1; j++){
 				
 				System.out.printf("  %d" ,arr[i][j]);
 				
