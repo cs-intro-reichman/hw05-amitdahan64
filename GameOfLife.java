@@ -149,11 +149,11 @@ public class GameOfLife {
 		int k, r, s, t;
 		if(i == 0){k = i;}
 		else { k = i-1;}
-		if(i == board.length){r = i; }
+		if(i == board.length-1){r = i; }
 		else{r = i+1;}
 		if(j == 0){s = j;}
 		else{s = j-1;}
-		if(j == board[0].length){t = j;}
+		if(j == board[0].length-1){t = j;}
 		else{t = j+1;}
 
 		for(int n = k; n <= r; n++){
